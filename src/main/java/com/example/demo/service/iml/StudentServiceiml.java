@@ -20,7 +20,7 @@ public class StudentServiceiml implements StudentService{
     public Student createData(@RequestBody Student stu){
            return sr.save(stu);
     }
-
+t
     @Override
     public List<Student> fetchData(){
         return sr.findAll();
