@@ -1,13 +1,21 @@
-package com.example.demo;
+package com.example.demo.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-public class DemoApplication {
+import com.example.demo.entity.Student;
+import com.example.demo.service.StudentService;
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+@RestController
+public class StudentController {
 
+    @Autowired
+    private StudentService service;
+
+    @PostMapping("/adddata")
+    public Student addStudent(@RequestBody Student student) {
+        return service.createData(student);
+    }
 }
